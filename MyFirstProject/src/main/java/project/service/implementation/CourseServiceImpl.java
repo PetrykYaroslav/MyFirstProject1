@@ -26,7 +26,7 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	public void insert(Course course) {
-		courseDao.insert(course);		
+		courseDao.add(course);		
 	}
 
 	public List<Course> getAll() {
@@ -42,8 +42,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.findById(id);
 	}
 
-	public Course update(int id) {
-		return courseDao.update(id);
+	public Course update(int id, String titleCourse, int timeCourse, int quantityLessons, int cost) {
+		return null;
+//				courseDao.update();
 	}
 
 

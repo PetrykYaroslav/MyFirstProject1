@@ -50,7 +50,7 @@
 						<td>${course.timeCourse}</td>
 						<td>${course.quantityLessons}</td>
 						<td>${course.cost}</td>
-						<td><a href="updatePage" action="edit" value="${course.id}">edit</a></td>
+						<td><a href="updatePage?id=${course.id}">edit</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

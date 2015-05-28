@@ -2,19 +2,14 @@ package project.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.domain.Course;
-import project.domain.Teacher;
 import project.service.CourseService;
 
 @Controller
@@ -22,7 +17,6 @@ public class CourseController {
 
 	@Autowired
 	CourseService service;
-
 
 	@RequestMapping(value = "/showCourse")
 	public String showAll(Model model) {
@@ -59,7 +53,7 @@ public class CourseController {
 	public String findById(@RequestParam(value = "id") String id, Model model) {
 		int idInt = Integer.parseInt(id);
 		Course course = service.findById(idInt);
-		model.addAttribute("course",course);
+		model.addAttribute("course", course);
 		return "project-find-course";
 	}
 
@@ -68,15 +62,26 @@ public class CourseController {
 		return "project-update";
 	}
 
-	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public String update(@RequestParam(value = "id") String id, Model model) {
+	public String update(@RequestParam(value = "id") String id,
+			@RequestParam(value = "cost") String cost,
+			@RequestParam(value = "quantityLessons") String quantityLessons,
+			@RequestParam(value = "timeCourse") String timeCourse,
+			@RequestParam(value = "titleCourse") String titleCourse) {
 		int idInt = Integer.parseInt(id);
-		Course course = service.update(idInt);
-		model.addAttribute("course", course);
+		int costInt = Integer.parseInt(cost);
+		int quantityLessonsInt = Integer.parseInt(quantityLessons);
+		int timeCourseInt = Integer.parseInt(timeCourse);
+		service.update(idInt, titleCourse, timeCourseInt, quantityLessonsInt, costInt);
+
+		/*
+		 * Course course = new Course(titleCourse, timeCourseInt,
+		 * quantityLessonsInt, costInt); service.update(course);
+		 * 
+		 * model.addAttribute("id");
+		 */
 
 		return "project-course";
 	}
-	
 
 }

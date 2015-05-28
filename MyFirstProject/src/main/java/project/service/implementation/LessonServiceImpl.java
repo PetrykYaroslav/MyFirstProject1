@@ -29,7 +29,7 @@ public class LessonServiceImpl implements LessonService {
 	}
 
 	public void insert(Lesson lesson) {
-		lessonDao.insert(lesson);
+//		lessonDao.insert(lesson);
 	}
 
 	public List<Lesson> getAll() {

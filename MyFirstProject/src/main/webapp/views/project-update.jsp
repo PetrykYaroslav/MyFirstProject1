@@ -9,14 +9,16 @@
 <body>
 	<form action="edit" method="POST">
 		<h3>Edit Data:</h3>
-		Title Course <input class="form-control" name="titleCourse"	value="${titleCourse}" type="text" placeholder="Title Course">
-		</br>
-		Time Course <input class="form-control" name="timeCourse" value="${timeCourse}" type="text" placeholder="Time Course">
-		</br>
-		Quantity Lesson <input class="form-control" name="quantityLessons" value="${quantityLessons}" type="text" placeholder="Quantity Lesson">
-		</br>
-		Cost <input class="form-control" name="cost" value="${cost}" type="text" placeholder="Cost">
-		</br>
+		Enter ID <input name="id" value="${id}" type="text" placeholder="Enter ID">
+		<br>
+		Title Course <input class="form-control" name="titleCourse"	value="${titleCourse}" type="text">
+		<br>
+		Time Course <input class="form-control" name="timeCourse" value="${timeCourse}" type="text">
+		<br>
+		Quantity Lesson <input class="form-control" name="quantityLessons" value="${quantityLessons}" type="text">
+		<br>
+		Cost <input class="form-control" name="cost" value="${cost}" type="text">
+		<br>
 		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 			Submit
 		</button>

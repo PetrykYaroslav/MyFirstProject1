@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import project.dao.BaseDao;
+import project.domain.Course;
 import project.domain.Teacher;
 
 public class BaseDaoImpl<E> implements BaseDao<E> {
@@ -47,23 +48,25 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 	}
 
 	@Transactional
-	public E update(E entity) {
-		return entityManager.merge(entity);
-	}
-
-	@Transactional
 	public E findById(int id) {
-		return (E) entityManager
+	return (E) entityManager
 				.createQuery(
 						"SELECT c FROM " + entityClass.getSimpleName()
 								+ " c WHERE c.id = :id").setParameter("id", id)
 				.getSingleResult();
 
 	}
+
 	@Transactional
 	public List<E> getAll() {
 		return entityManager.createQuery("from " + entityClass.getSimpleName())
 				.getResultList();
+	}
+
+	@Transactional
+	public E update(E entity) {
+		return entityManager.merge(entity);
+
 	}
 
 }

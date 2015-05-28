@@ -2,6 +2,7 @@ package project.dao;
 
 import java.util.List;
 
+import project.domain.Course;
 import project.domain.Teacher;
 
 public interface BaseDao<E> {

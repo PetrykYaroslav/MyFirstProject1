@@ -32,28 +32,4 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 			return null;
 		}
 	}
-
-	@Transactional
-	public void insert(Course course) {
-		entityManager.persist(course);
-	}
-
-	@Transactional
-	public List<Course> getAll() {
-		List<Course> list = entityManager.createQuery("FROM Course")
-				.getResultList();
-		return list;
-	}
-
-	@Transactional
-	public Course findById(int id) {
-		return (Course) entityManager.createNamedQuery(Course.FIND_BY_ID)
-				.setParameter("id", id).getSingleResult();
-
-	}
-	
-	@Transactional
-	public Course update(int id) {
-		return (Course) entityManager.createNamedQuery(Course.UPDATE_BY_ID).setParameter("id", id);
-	}
 }

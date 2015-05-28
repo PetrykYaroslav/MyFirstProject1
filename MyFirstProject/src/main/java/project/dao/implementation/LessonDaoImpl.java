@@ -29,14 +29,5 @@ public class LessonDaoImpl extends BaseDaoImpl<Lesson> implements LessonDao {
 			return null;
 		}
 	}
-	@Transactional
-	public void insert(Lesson lesson) {
-		entityManager.persist(lesson);
-	}
 
-	@Transactional
-	public List<Lesson> getAll() {
-		List<Lesson> list = entityManager.createQuery("FROM Lesson").getResultList();
-		return list;
-	}
 }
